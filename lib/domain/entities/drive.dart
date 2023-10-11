@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:freight_ui/domain/dto/drive.dart';
 
 class Drive {
