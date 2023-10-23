@@ -37,7 +37,7 @@ void main() {
         print('userId: ${expenditure.userId}');
         print('price: ${expenditure.price}');
         print('paymentDetail: ${expenditure.paymentDetail}');
-        print('createdAt: ${expenditure.createdAt}');
+        // print('createdAt: ${expenditure.createdAt}');
         print('extra: ${expenditure.extra}');
         print('Payment Date: ${expenditure.paymentDate}');
       }

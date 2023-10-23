@@ -48,8 +48,6 @@ class SimpleMonthYearPicker extends State<SimpleCalendar> {
     print(" selected Date : ${formattedDate}" );  
     
     selectedDate = DateFormat('yyyy-MM').format(dateTime);
-    expenditureScreenState.changeDate(formattedDate);
-    expenditureScreenState.refreshPagingList(1);
 
     setState(() => {});
   }

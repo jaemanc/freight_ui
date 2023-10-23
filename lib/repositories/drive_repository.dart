@@ -120,9 +120,6 @@ class DriveDefaultRepository extends DriveRepository {
   @override
   Future<bool> delete(int id) async {
 
-
-
-
     final response =
     await _freightClient.delete(
         "/api/v1/operate/${id}"

@@ -4,6 +4,11 @@ abstract class ExpenditureEvent {
   const ExpenditureEvent();
 }
 
+class ExpenditureLoadStarted extends ExpenditureEvent {
+  final bool loadAll;
+  const ExpenditureLoadStarted({this.loadAll = false});
+}
+
 class ExpenditureCreated extends ExpenditureEvent {
   final ExpenditureDto expenditureDto;
   const ExpenditureCreated(this.expenditureDto);

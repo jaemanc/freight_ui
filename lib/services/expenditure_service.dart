@@ -45,11 +45,21 @@ class ExpenditureService extends ExpenditureBase {
         expenditureList =
             data.map((json) => ExpenditureDto.fromJson(json)).toList();
 
+      // Data 확인용
+      for (var expenditure in expenditureList) {
+        print('ID: ${expenditure.id}');
+        print('userId: ${expenditure.userId}');
+        print('price: ${expenditure.price}');
+        print('paymentDetail: ${expenditure.paymentDetail}');
+        // print('createdAt: ${expenditure.createdAt}');
+        print('extra: ${expenditure.extra}');
+        print('Payment Date: ${expenditure.paymentDate}');
+      }
+
         PagingDto<ExpenditureDto> result = PagingDto.optional(
             datas: expenditureList,
             totalMount: resultData['totalMount'],
             totalCount: resultData['totalCount']);
-        // print('result data : ${result.datas}');
         return result;
       }
     } catch (e) {

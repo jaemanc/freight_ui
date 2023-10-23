@@ -3,9 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:freight_ui/app.dart';
 import 'package:freight_ui/repositories/drive_repository.dart';
+import 'package:freight_ui/repositories/expenditure_repository.dart';
 import 'package:freight_ui/repositories/user_repository.dart';
 import 'package:freight_ui/states/drive/drive_bloc.dart';
 import 'package:freight_ui/states/drive/drive_form_bloc.dart';
+import 'package:freight_ui/states/expenditure/expenditure_bloc.dart';
+import 'package:freight_ui/states/expenditure/expenditure_form_bloc.dart';
 import 'package:freight_ui/states/user/user_bloc.dart';
 
 
@@ -19,7 +22,9 @@ void main() async {
       ),
       RepositoryProvider<UserRepository>(
           create: (context) => UserDefaultRepository()
-      )
+      ),
+      RepositoryProvider<ExpenditureRepository> (create: (context) => ExpenditureRepositoryImpl()),
+
     ],
     child: MultiBlocProvider(
       providers: [
@@ -33,11 +38,21 @@ void main() async {
               context.read<UserRepository>()
             )
         ),
+        BlocProvider(
+          create: (context) => ExpenditureBloc(
+            context.read<ExpenditureRepository>()
+          )
+        ),
         BlocProvider<DriveFormBloc>(
           create: (context) => DriveFormBloc(
             context.read<DriveRepository>()
           ),
-        )
+        ),
+        BlocProvider<ExpenditureFormBloc>(
+          create: (context) => ExpenditureFormBloc(
+            context.read<ExpenditureRepository>()
+          ),
+        ),
       ],
       child: const FreightApp(),
     ),
